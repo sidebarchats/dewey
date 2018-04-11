@@ -2,10 +2,10 @@
 """Dewey, our friendly CLI friend!
 
 Usage:
-  dewey (workon | w) <app_name>
+  dewey workon <app_name>
   dewey (checkout | co) <branch_name>
   dewey (new-branch | nb) <branch_name>
-  dewey bootstrap
+  dewey dev-setup
   dewey up
   dewey pull
   dewey restart
@@ -13,7 +13,6 @@ Usage:
   dewey build
   dewey android
   dewey ios
-  dewey dev-setup
   dewey setup
   dewey reset
   dewey syncdb
@@ -31,23 +30,22 @@ Hidden commands for scripts:
   --post        Output the post-command scripts for execution.
 
 Details of use:
-  dewey (workon | w) <app_name>   Change to the specified sidebar codebase.
+  dewey workon <app_name>   Change to the specified sidebar codebase.
   dewey (checkout | co) <branch_name>
   dewey (new-branch | nb) <branch_name>
-  dewey bootstrap   Start up docker and file sync
   dewey up          Start the dev machines
-  dewey pull        Pull the latest docker image.
-  dewey restart     Restart docker
-  dewey bash        SSH into the main docker container
-  dewey build       Build for native devices
-  dewey android     Run the latest build on android
-  dewey ios         Run the latest build on ios
   dewey dev-setup   Update the system developer libraries
   dewey setup       Set up a given codebase
-  dewey reset       Update npm, bower, and all ionic packages and plugins
-  dewey syncdb      Run django syncdb
-  dewey test        Run all tests
-  dewey init        Initialize docker for first setup
+  dewey bash        WIP SSH into the main docker container
+  dewey pull        WIP Pull the latest docker image.
+  dewey restart     WIP Restart docker
+  dewey build       WIP Build for native devices
+  dewey android     WIP Run the latest build on android
+  dewey ios         WIP Run the latest build on ios
+  dewey reset       WIP Update npm, bower, and all ionic packages and plugins
+  dewey syncdb      WIP Run django syncdb
+  dewey test        WIP Run all tests
+  dewey init        WIP Initialize docker for first setup
   dewey hi          Say hello
   dewey upgrade     Upgrade dewey
 

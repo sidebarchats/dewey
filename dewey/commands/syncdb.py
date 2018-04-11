@@ -16,4 +16,4 @@ class Command(DeweyCommand):
         pass
 
     def post_default(self, *args, **kwargs):
-        return 'cd app/api; python manage.py migrate'
+        return 'docker-compose api run cd app/api; python manage.py migrate'

@@ -9,7 +9,7 @@ from dewey.util import suppress_stdout_stderr
 class Command(DeweyCommand):
 
     def pre_default(self, *args, **kwargs):
-        return "boot2docker restart"
+        return "docker-compose restart"
 
     def run_command(self, *args, **kwargs):
         pass

@@ -8,7 +8,7 @@ from dewey.util import suppress_stdout_stderr
 class Command(DeweyCommand):
 
     def pre_default(self, *args, **kwargs):
-        return "bash <(curl -s https://raw.githubusercontent.com/sidebar/dev-setup/master/setup.sh)"
+        return "bash <(curl -s https://raw.githubusercontent.com/sidebarchats/meta/master/bootstrap.sh)"
 
     def run_command(self, *args, **kwargs):
         pass
