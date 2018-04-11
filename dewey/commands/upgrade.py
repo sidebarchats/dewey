@@ -5,7 +5,7 @@ from dewey.util import suppress_stdout_stderr
 class Command(DeweyCommand):
 
     def pre_default(self, *args, **kwargs):
-        return "printf -e 'Upgrading dewey... '"
+        return "printf 'Upgrading dewey... '"
 
     def run_command(self, *args, **kwargs):
             try:
