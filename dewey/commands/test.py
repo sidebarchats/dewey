@@ -9,7 +9,7 @@ from dewey.util import suppress_stdout_stderr
 class Command(DeweyCommand):
 
     def pre_default(self, *args, **kwargs):
-        return 'docker-compose run --project-name bu web bash -c "cd app; pt"'
+        return 'docker-compose run api bash -c "cd app; pt"'
 
     def run_command(self, *args, **kwargs):
         pass
