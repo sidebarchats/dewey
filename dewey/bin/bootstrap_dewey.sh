@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+DEWEYBS_START_WD=`pwd`
 cd ~
 docopt-completion hey_dewey --manual-bash > /dev/null
 # if [ ! -f ./hey_dewey.sh ]; then
@@ -24,3 +25,4 @@ function _run_dewey() {
 
 alias d="_run_dewey"
 alias dewey="_run_dewey"
+cd $DEWEYBS_START_WD
