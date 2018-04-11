@@ -32,6 +32,8 @@ class Command(DeweyCommand):
             puts("Installing requirements.txt...", newline=False)
             subprocess.call("pip install -r requirements.txt", shell=True)
             puts(" done.")
+        else:
+            puts(" no python requirements.txt files found.")
 
     def post_default(self, *args, **kwargs):
         pass
