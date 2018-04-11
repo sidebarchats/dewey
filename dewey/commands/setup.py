@@ -19,6 +19,8 @@ class Command(DeweyCommand):
             puts(" found.  Installing...")
             subprocess.call("npm install", shell=True)
             puts("Installed.")
+        else:
+            puts(" package.json not found.")
         if os.path.isfile("requirements.unstable.txt"):
             subprocess.call("pip install -r requirements.unstable.txt", shell=True)
         elif os.path.isfile("requirements.txt"):
