@@ -14,10 +14,10 @@ class Command(DeweyCommand):
 
     def run_command(self, *args, **kwargs):
         try:
-            # Use procfile / docker / node detection to spin 
+            # Use procfile / docker / node detection to spin
             # If procfile
             # Else if docker
-            # Else npm
+            # Else if npm, make sure the docker container is running.
         except KeyboardInterrupt:
             print "\n\nShutting down."
 

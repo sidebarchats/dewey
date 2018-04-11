@@ -7,6 +7,7 @@ Usage:
   dewey (new-branch | nb) <branch_name>
   dewey dev-setup
   dewey up
+  dewey sync
   dewey pull
   dewey restart
   dewey bash
@@ -35,6 +36,7 @@ Details of use:
   dewey (new-branch | nb) <branch_name>
   dewey up          Start the dev machines
   dewey dev-setup   Update the system developer libraries
+  dewey sync        Pull from github, generate a difference report
   dewey setup       Set up a given codebase
   dewey bash        WIP SSH into the main docker container
   dewey pull        WIP Pull the latest docker image.
