@@ -6,26 +6,32 @@ from .base import DeweyCommand
 from dewey.util import suppress_stdout_stderr
 
 
-
 class Command(DeweyCommand):
 
     def pre_default(self, *args, **kwargs):
         pass
-        # return 'docker-compose --project-name bu run db bash -c "createdb -h db -U postgres sidebar"'
 
     def run_command(self, *args, **kwargs):
-        puts("Checking npm...", newline=False)
+        puts("Checking nodejs requirements...", newline=False)
         if os.path.isfile("package.json"):
             puts(" found.")
             puts("Installing package.json...", newline=False)
             subprocess.call("npm install", shell=True)
-            puts("done.")
+            puts(" done.")
         else:
             puts(" package.json not found.")
+
+        puts("Checking python requirements...", newline=False)
         if os.path.isfile("requirements.unstable.txt"):
+            puts(" found.")
+            puts("Installing requirements.unstable.txt...", newline=False)
             subprocess.call("pip install -r requirements.unstable.txt", shell=True)
+            puts(" done.")
         elif os.path.isfile("requirements.txt"):
+            puts(" found.")
+            puts("Installing requirements.txt...", newline=False)
             subprocess.call("pip install -r requirements.txt", shell=True)
+            puts(" done.")
 
     def post_default(self, *args, **kwargs):
         pass
