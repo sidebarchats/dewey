@@ -14,11 +14,12 @@ class Command(DeweyCommand):
         # return 'docker-compose --project-name bu run db bash -c "createdb -h db -U postgres sidebar"'
 
     def run_command(self, *args, **kwargs):
-        puts("Checking npm...",)
+        puts("Checking npm...", newline=False)
         if os.path.isfile("package.json"):
-            puts(" found.  Installing...")
+            puts(" found.")
+            puts("Installing package.json...", newline=False)
             subprocess.call("npm install", shell=True)
-            puts("Installed.")
+            puts("done.")
         else:
             puts(" package.json not found.")
         if os.path.isfile("requirements.unstable.txt"):
