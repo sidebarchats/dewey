@@ -2,7 +2,7 @@
 """Dewey, our friendly CLI friend!
 
 Usage:
-  dewey workon
+  dewey (workon | w) <app_name>
   dewey (checkout | co) <branch_name>
   dewey (new-branch | nb) <branch_name>
   dewey bootstrap
@@ -14,6 +14,7 @@ Usage:
   dewey android
   dewey ios
   dewey dev-setup
+  dewey setup
   dewey reset
   dewey syncdb
   dewey test
@@ -30,7 +31,7 @@ Hidden commands for scripts:
   --post        Output the post-command scripts for execution.
 
 Details of use:
-  dewey workon      Change to the sidebar working directory
+  dewey (workon | w) <app_name>   Change to the specified sidebar codebase.
   dewey (checkout | co) <branch_name>
   dewey (new-branch | nb) <branch_name>
   dewey bootstrap   Start up docker and file sync
@@ -42,6 +43,7 @@ Details of use:
   dewey android     Run the latest build on android
   dewey ios         Run the latest build on ios
   dewey dev-setup   Update the system developer libraries
+  dewey setup       Set up a given codebase
   dewey reset       Update npm, bower, and all ionic packages and plugins
   dewey syncdb      Run django syncdb
   dewey test        Run all tests
