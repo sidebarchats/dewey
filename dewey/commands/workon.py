@@ -4,7 +4,7 @@ from .base import DeweyCommand
 class Command(DeweyCommand):
 
     def pre_default(self, *args, **kwargs):
-        return "workon sidebar-%(app_name)s" % kwargs
+        return "workon sidebar-%s" % kwargs["<app_name>"]
 
     def run_command(self, *args, **kwargs):
         pass
