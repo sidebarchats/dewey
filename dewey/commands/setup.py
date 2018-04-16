@@ -1,5 +1,6 @@
 import os
 import subprocess
+import pyyaml
 from clint.textui import puts, indent, colored
 
 from .base import DeweyCommand
@@ -12,8 +13,16 @@ class Command(DeweyCommand):
         pass
 
     def run_command(self, *args, **kwargs):
-        puts("Checking docker...", newline=False)
-        if os.path.isfile("docker-compose.yml"):
+        puts("Checking for dewey.yml file...", newline=False)
+        if os.path.isfile("dewey.yml"):
+            puts("Found. Running setup...")
+            dewey_local = pyyaml.load("dewey.yml")
+            if "setup" in dewey_local:
+                for c in dewey_local["setup"]:
+                    subprocess.call(c, shell=True)
+            puts("done.")
+        elif os.path.isfile("docker-compose.yml"):
+            puts("Checking docker...", newline=False)
             subprocess.call("docker-compose build", shell=True)
             puts(" done.")
         else:
