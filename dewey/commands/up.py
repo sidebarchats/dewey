@@ -24,4 +24,4 @@ class Command(DeweyCommand):
 
     def post_default(self, *args, **kwargs):
         if self.has_local_override("dev"):
-            puts("Running dev from dewey.yml...")
+            return " && ".join(self.local["dev"])
