@@ -15,14 +15,17 @@ class Command(DeweyCommand):
     def run_command(self, *args, **kwargs):
         puts("Checking for dewey.yml file...", newline=False)
         if os.path.isfile("dewey.yml"):
-            puts("Found. Running setup...")
-            dewey_local = yaml.load("dewey.yml")
+            puts("Found.\nRunning setup...")
+            dewey_local = yaml.load(open("dewey.yml"))
             if "setup" in dewey_local:
                 print("Running %s" % c)
                 for c in dewey_local["setup"]:
                     subprocess.call(c, shell=True)
-            puts("done.")
-        elif os.path.isfile("docker-compose.yml"):
+                return
+            else:
+                puts("setup not found in dewey local.  Continuing with autodetection...")
+
+        if os.path.isfile("docker-compose.yml"):
             puts("Checking docker...", newline=False)
             subprocess.call("docker-compose build", shell=True)
             puts(" done.")
