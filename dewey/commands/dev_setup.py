@@ -8,10 +8,10 @@ from dewey.util import suppress_stdout_stderr
 class Command(DeweyCommand):
 
     def pre_default(self, *args, **kwargs):
-        return "source <(curl -s https://raw.githubusercontent.com/sidebarchats/meta/master/bootstrap.sh)"
+        pass
 
     def run_command(self, *args, **kwargs):
         pass
 
     def post_default(self, *args, **kwargs):
-        pass
+        return "bash <(curl -s https://raw.githubusercontent.com/sidebarchats/meta/master/bootstrap.sh)"

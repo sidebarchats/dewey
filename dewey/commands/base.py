@@ -27,7 +27,7 @@ class DeweyCommand(object):
         else:
             self.local = None
 
-    def c(self, key):
+    def has_local_override(self, key):
         return self.local and "setup" in self.local and len(self.local[key]) > 0
 
     def answer_yes_or_no(self, question, default="yes"):
