@@ -14,7 +14,7 @@ class Command(DeweyCommand):
     def run_command(self, *args, **kwargs):
         puts("Checking docker...", newline=False)
         if os.path.isfile("docker-compose.yml"):
-            subprocess.call("docker-compose build; docker-compose up")
+            subprocess.call("docker-compose build", shell=True)
             puts(" done.")
         else:
             puts("docker not found.")
