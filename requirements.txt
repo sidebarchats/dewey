@@ -1,3 +1,4 @@
 clint==0.5.1
 docopt==0.6.2
 infi.docopt-completion==0.2.8
+pyyaml==3.12
