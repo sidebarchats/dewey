@@ -1,6 +1,6 @@
 import os
 import subprocess
-import pyyaml
+import yaml
 from clint.textui import puts, indent, colored
 
 from .base import DeweyCommand
@@ -16,7 +16,7 @@ class Command(DeweyCommand):
         puts("Checking for dewey.yml file...", newline=False)
         if os.path.isfile("dewey.yml"):
             puts("Found. Running setup...")
-            dewey_local = pyyaml.load("dewey.yml")
+            dewey_local = yaml.load("dewey.yml")
             if "setup" in dewey_local:
                 for c in dewey_local["setup"]:
                     subprocess.call(c, shell=True)
