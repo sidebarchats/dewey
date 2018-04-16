@@ -6,7 +6,7 @@ class Command(DeweyCommand):
         pass
 
     def run_command(self, *args, **kwargs):
-        print "Oh, hello."
+        print("Oh, hello.")
 
     def post_default(self, *args, **kwargs):
         pass

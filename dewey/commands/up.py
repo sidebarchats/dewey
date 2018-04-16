@@ -19,7 +19,7 @@ class Command(DeweyCommand):
             # Else if docker
             # Else if npm, make sure the docker container is running.
         except KeyboardInterrupt:
-            print "\n\nShutting down."
+            print("\n\nShutting down.")
 
 
     def post_default(self, *args, **kwargs):

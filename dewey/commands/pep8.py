@@ -6,7 +6,7 @@ class Command(DeweyCommand):
         pass
 
     def run_command(self, *args, **kwargs):
-        print "Still need to write this!"
+        print("Still need to write this!")
 
     def post_default(self, *args, **kwargs):
         pass

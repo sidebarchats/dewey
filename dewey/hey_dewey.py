@@ -98,16 +98,16 @@ def main():
                 cmd = getattr(command_module, 'Command')()
                 cmd.set_platform(platform)
                 if run_pre:
-                    print cmd.run_pre(**arguments)
+                    print(cmd.run_pre(**arguments))
                 elif run_post:
-                    print cmd.run_post(**arguments)
+                    print(cmd.run_post(**arguments))
                 else:
                     cmd.run_command(**arguments)
             except:
                 if not run_pre and not run_post:
                     import traceback
                     traceback.print_exc()
-                    print "Unable to find a command module for %s" % arg_name
+                    print("Unable to find a command module for %s" % arg_name)
 
 
 if __name__ == '__main__':
