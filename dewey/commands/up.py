@@ -14,6 +14,13 @@ class Command(DeweyCommand):
 
     def run_command(self, *args, **kwargs):
         try:
+            if self.has_local_override("dev"):
+                puts("Running dev from dewey.yml...")
+                for c in self.local["dev"]:
+                    print("Running %s" % c)
+                    subprocess.call(c, shell=True)
+            return
+            puts("dewey.yml not found.  Not sure how to start this project.")
             # Use procfile / docker / node detection to spin
             # If procfile
             # Else if docker

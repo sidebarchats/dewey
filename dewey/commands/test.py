@@ -9,10 +9,15 @@ from dewey.util import suppress_stdout_stderr
 class Command(DeweyCommand):
 
     def pre_default(self, *args, **kwargs):
-        return 'docker-compose run api bash -c "cd app; pt"'
+        if not self.has_local_override("test"):
+            return 'pt'
 
     def run_command(self, *args, **kwargs):
-        pass
+        if self.has_local_override("test"):
+            puts("dewey.yml Found.\nRunning test...")
+            for c in self.local["test"]:
+                print("Running %s" % c)
+                subprocess.call(c, shell=True)
 
     def post_default(self, *args, **kwargs):
         pass

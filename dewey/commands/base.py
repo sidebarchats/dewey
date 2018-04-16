@@ -1,5 +1,7 @@
+import os
 import pickle
 import sys
+import yaml
 
 from clint import resources
 
@@ -18,6 +20,15 @@ class DeweyCommand(object):
             self.brain = pickle.load(brain_pickle)
         else:
             self.brain = Brain()
+
+        # Check for dewey.yml.
+        if os.path.isfile("dewey.yml"):
+            self.local = yaml.load(open("dewey.yml"))
+        else:
+            self.local = None
+
+    def c(self, key):
+        return self.local and "setup" in self.local and len(self.local[key]) > 0
 
     def answer_yes_or_no(self, question, default="yes"):
         """Ask a yes/no question via raw_input() and return their answer.
