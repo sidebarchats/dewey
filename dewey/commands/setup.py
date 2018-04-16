@@ -18,8 +18,8 @@ class Command(DeweyCommand):
             puts("Found.\nRunning setup...")
             dewey_local = yaml.load(open("dewey.yml"))
             if "setup" in dewey_local:
-                print("Running %s" % c)
                 for c in dewey_local["setup"]:
+                    print("Running %s" % c)
                     subprocess.call(c, shell=True)
                 return
             else:
