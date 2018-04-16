@@ -10,14 +10,11 @@ from dewey.util import suppress_stdout_stderr
 class Command(DeweyCommand):
 
     def pre_default(self, *args, **kwargs):
-        pass
+        if self.has_local_override("setup"):
+            return " && ".join(self.local["setup"])
 
     def run_command(self, *args, **kwargs):
         if self.has_local_override("setup"):
-            puts("dewey.yml Found.\nRunning setup...")
-            for c in self.local["setup"]:
-                print("Running %s" % c)
-                subprocess.call(c, shell=True)
             return
 
         if os.path.isfile("docker-compose.yml"):

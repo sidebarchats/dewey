@@ -11,11 +11,9 @@ class Command(DeweyCommand):
         pass
 
     def run_command(self, *args, **kwargs):
-        if self.has_local_override("build"):
-            puts("dewey.yml Found.\nRunning build...")
-            for c in self.local["build"]:
-                print("Running %s" % c)
-                subprocess.call(c, shell=True)
+        pass
 
     def post_default(self, *args, **kwargs):
-        pass
+        if self.has_local_override("build"):
+            puts("dewey.yml Found.\nRunning build...")
+            return " && ".join(self.local["build"])
