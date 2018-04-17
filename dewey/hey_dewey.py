@@ -8,17 +8,10 @@ Usage:
   dewey dev-setup
   dewey up
   dewey sync
-  dewey pull
-  dewey restart
   dewey bash
   dewey build
-  dewey android
-  dewey ios
   dewey setup
-  dewey reset
-  dewey syncdb
   dewey test
-  dewey init
   dewey hi
   dewey upgrade
 
@@ -38,16 +31,9 @@ Details of use:
   dewey dev-setup   Update the system developer libraries
   dewey sync        Pull from github, generate a difference report
   dewey setup       Set up a given codebase
-  dewey bash        WIP SSH into the main docker container
-  dewey pull        WIP Pull the latest docker image.
-  dewey restart     WIP Restart docker
-  dewey build       WIP Build for native devices
-  dewey android     WIP Run the latest build on android
-  dewey ios         WIP Run the latest build on ios
-  dewey reset       WIP Update npm, bower, and all ionic packages and plugins
-  dewey syncdb      WIP Run django syncdb
-  dewey test        WIP Run all tests
-  dewey init        WIP Initialize docker for first setup
+  dewey bash        (Backend) SSH into the main docker container
+  dewey build       Build for production
+  dewey test        Run all tests
   dewey hi          Say hello
   dewey upgrade     Upgrade dewey
 
