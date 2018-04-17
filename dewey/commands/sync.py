@@ -14,4 +14,4 @@ class Command(DeweyCommand):
         pass
 
     def post_default(self, *args, **kwargs):
-        return '~/.pyenv/versions/2.7/lib/python2.7/site-packages/dewey/bin/git-branch-status.sh'
+        return '~/.pyenv/versions/2.7.7/lib/python2.7/site-packages/dewey/bin/git-branch-status.sh'
