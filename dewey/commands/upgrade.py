@@ -17,4 +17,4 @@ class Command(DeweyCommand):
 
 
     def post_default(self, *args, **kwargs):
-        return "source ~/.pyenv/versions/2.7/lib/python2.7/site-packages/dewey/bin/bootstrap_dewey.sh"
+        return "source ~/.pyenv/versions/2.7.7/lib/python2.7/site-packages/dewey/bin/bootstrap_dewey.sh"
