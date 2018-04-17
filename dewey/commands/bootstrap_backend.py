@@ -12,7 +12,7 @@ class Command(DeweyCommand):
 
     def run_command(self, *args, **kwargs):
         puts("Bootstrapping backend...", newline=False)
-        subprocess.call("d workon backend; docker-compose up -d --no-recreate", shell=True)
+        subprocess.call("d workon backend; if ! [ -e .setup_run ]; then d setup; fi; docker-compose up -d --no-recreate", shell=True)
         puts(" done.")
 
     def post_default(self, *args, **kwargs):
