@@ -14,6 +14,7 @@ Usage:
   dewey test
   dewey hi
   dewey upgrade
+  dewey bootstrap_backend
 
 Options:
   -h --help     Show this screen.
@@ -36,6 +37,7 @@ Details of use:
   dewey test        Run all tests
   dewey hi          Say hello
   dewey upgrade     Upgrade dewey
+  dewey bootstrap_backend     Start up the backend services.
 
 """
 import os

@@ -15,10 +15,10 @@ class Command(DeweyCommand):
         try:
             if not self.has_local_override("dev"):
                 puts("'dev' section in dewey.yml not found.  Not sure how to start this project.")
-            # Use procfile / docker / node detection to spin
-            # If procfile
-            # Else if docker
-            # Else if npm, make sure the docker container is running.
+                # Use procfile / docker / node detection to spin
+                # If procfile
+                # Else if docker
+                # Else if npm, make sure the docker container is running.
         except KeyboardInterrupt:
             print("\n\nShutting down.")
 
