@@ -14,8 +14,8 @@ class Command(DeweyCommand):
         try:
             puts("Upgrading dewey... ", newline=False)
             with suppress_stdout_stderr():
-                subprocess.check_output("bash -c 'pyenv local 3.6.5 && pip install git+https://git@github.com/sidebarchats/dewey.git#egg=dewey --upgrade --force'", shell=True,)
-                subprocess.check_output("bash -c 'pyenv local 2.7.7 && pip install git+https://git@github.com/sidebarchats/dewey.git#egg=dewey --upgrade --force'", shell=True,)
+                subprocess.check_output("bash -c 'pyenv local 3.6.5 && pip install git+ssh://git@github.com/sidebarchats/dewey.git#egg=dewey --upgrade --force'", shell=True,)
+                subprocess.check_output("bash -c 'pyenv local 2.7.7 && pip install git+ssh://git@github.com/sidebarchats/dewey.git#egg=dewey --upgrade --force'", shell=True,)
             puts("complete.")
         except subprocess.CalledProcessError as grepexc:                                                                                                   
             puts("\nError upgrading dewey. \n%s" % (grepexc.output,))
