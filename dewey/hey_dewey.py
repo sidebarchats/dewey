@@ -15,6 +15,7 @@ Usage:
   dewey hi
   dewey upgrade
   dewey bootstrap_backend
+  dewey bootstrap_tunnel
 
 Options:
   -h --help     Show this screen.
@@ -38,6 +39,7 @@ Details of use:
   dewey hi          Say hello
   dewey upgrade     Upgrade dewey
   dewey bootstrap_backend     Start up the backend services.
+  dewey bootstrap_tunnel     Start up the dev tunnel.
 
 """
 import os
