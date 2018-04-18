@@ -28,4 +28,4 @@ class Command(DeweyCommand):
         puts(" done.")
 
     def post_default(self, *args, **kwargs):
-        pass
+        return 'export SIDEBAR_API_URL=%s' % self.brain.api_url

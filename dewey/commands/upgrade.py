@@ -11,8 +11,8 @@ class Command(DeweyCommand):
 
     def run_command(self, *args, **kwargs):
         self.ensure_dev_setup()
-        puts("Upgrading dewey... ", newline=False)
         try:
+            puts("Upgrading dewey... ", newline=False)
             with suppress_stdout_stderr():
                 subprocess.check_output("bash -c 'pyenv local 3.6.5 && pip install git+https://git@github.com/sidebarchats/dewey.git#egg=dewey --upgrade --force'", shell=True,)
                 subprocess.check_output("bash -c 'pyenv local 2.7.7 && pip install git+https://git@github.com/sidebarchats/dewey.git#egg=dewey --upgrade --force'", shell=True,)
