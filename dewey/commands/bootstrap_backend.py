@@ -18,7 +18,7 @@ class Command(DeweyCommand):
         r = requests.get("http://localhost:4040/api/tunnels")
         j = r.json()
         if "tunnels" in j:
-            self.brain.api_url = j["tunnels"]["public_url"]
+            self.brain.api_url = j["tunnels"][0]["public_url"]
             self.brain.save()
             os.environ["SIDEBAR_API_URL"] = self.brain.api_url
             puts(" found at %s." % self.brain.api_url)
