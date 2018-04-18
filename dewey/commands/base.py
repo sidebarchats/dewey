@@ -18,7 +18,7 @@ class DeweyCommand(object):
         resources.init('sidebar', 'dewey')
         brain_pickle = resources.user.read('sidebar_config.ini')
         if brain_pickle:
-            self.brain = pickle.load(brain_pickle)
+            self.brain = pickle.loads(brain_pickle)
         else:
             self.brain = Brain()
 
@@ -91,7 +91,7 @@ class DeweyCommand(object):
 
     def ensure_dev_setup(self):
         if not hasattr(self.brain, "username"):
-            whoami = subprocess.check_output("whoami").replace("\n", "")
+            whoami = str(subprocess.check_output("whoami")).strip()
             resp = self.question_with_default(
                 "Hi! I'm dewey, Sidebar's CLI.  Looks like we haven't met before. Can you tell me your github username, so I can keep things tidy?",
                 whoami
