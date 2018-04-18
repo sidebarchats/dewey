@@ -28,16 +28,6 @@ class DeweyCommand(object):
         else:
             self.local = None
 
-        # Make sure we have the user's info.
-        if not hasattr(self.brain, "username"):
-            whoami = subprocess.check_output("whoami").replace("\n", "")
-            resp = self.question_with_default(
-                "Hi! I'm dewey, Sidebar's CLI.  Looks like we haven't met before. Can you tell me your github username, so I can keep things tidy?", 
-                whoami
-            )
-            self.brain.username = resp
-            self.save()
-
     def has_local_override(self, key):
         return self.local and "setup" in self.local and len(self.local[key]) > 0
 
@@ -98,6 +88,16 @@ class DeweyCommand(object):
 
     def save(self):
         resources.user.write('config.py', pickle.dumps(self.brain))
+
+    def ensure_dev_setup(self):
+        if not hasattr(self.brain, "username"):
+            whoami = subprocess.check_output("whoami").replace("\n", "")
+            resp = self.question_with_default(
+                "Hi! I'm dewey, Sidebar's CLI.  Looks like we haven't met before. Can you tell me your github username, so I can keep things tidy?",
+                whoami
+            )
+            self.brain.username = resp
+            self.save()
 
     def set_platform(self, platform):
         assert platform in VALID_PLATFORMS

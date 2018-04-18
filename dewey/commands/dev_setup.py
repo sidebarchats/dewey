@@ -11,7 +11,8 @@ class Command(DeweyCommand):
         pass
 
     def run_command(self, *args, **kwargs):
-        pass
+        # Make sure we have the user's info.
+        self.ensure_dev_setup()
 
     def post_default(self, *args, **kwargs):
         return "bash <(curl -s https://raw.githubusercontent.com/sidebarchats/meta/master/bootstrap.sh)"
