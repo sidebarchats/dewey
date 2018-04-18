@@ -15,4 +15,4 @@ class Command(DeweyCommand):
         self.ensure_dev_setup()
 
     def post_default(self, *args, **kwargs):
-        return "bash <(curl -s https://raw.githubusercontent.com/sidebarchats/meta/master/bootstrap.sh)"
+        return "bash <(curl -s https://raw.githubusercontent.com/sidebarchats/bootstrap/master/bootstrap.sh)"
