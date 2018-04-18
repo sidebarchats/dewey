@@ -26,7 +26,7 @@ class Command(DeweyCommand):
         puts("Bootstrapping backend...", newline=False)
         subprocess.call("cd ../backend && docker-compose up -d --no-recreate", shell=True)
         puts(" done.")
-        puts("'export SIDEBAR_API_URL=%s' % self.brain.api_url")
+        puts("export SIDEBAR_API_URL=%s" % self.brain.api_url)
 
     def post_default(self, *args, **kwargs):
         if self.brain.api_url:
