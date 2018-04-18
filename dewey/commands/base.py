@@ -16,7 +16,7 @@ class DeweyCommand(object):
 
     def __init__(self):
         resources.init('sidebar', 'dewey')
-        brain_pickle = resources.user.read('config.py')
+        brain_pickle = resources.user.read('sidebar_config.ini')
         if brain_pickle:
             self.brain = pickle.load(brain_pickle)
         else:
@@ -87,7 +87,7 @@ class DeweyCommand(object):
                 choice
 
     def save(self):
-        resources.user.write('config.py', pickle.dumps(self.brain))
+        resources.user.write('sidebar_config.ini', pickle.dumps(self.brain))
 
     def ensure_dev_setup(self):
         if not hasattr(self.brain, "username"):
