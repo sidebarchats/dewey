@@ -11,7 +11,7 @@ from dewey.util import suppress_stdout_stderr
 class Command(DeweyCommand):
 
     def pre_default(self, *args, **kwargs):
-        return "ngrok http 8120 &> /dev/null &"
+        return "{ ngrok http 8120 &> /dev/null & } 2>/dev/null"
 
     def run_command(self, *args, **kwargs):
         puts("Verifying tunnel...", newline=False)
