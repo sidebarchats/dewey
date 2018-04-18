@@ -11,7 +11,7 @@ from dewey.util import suppress_stdout_stderr
 class Command(DeweyCommand):
 
     def pre_default(self, *args, **kwargs):
-        return "ngrok http 8120 &> /dev/null &"
+        return "(ngrok http 8120 &> /dev/null &)"
 
     def run_command(self, *args, **kwargs):
         puts("Verifying tunnel...", newline=False)
@@ -19,7 +19,7 @@ class Command(DeweyCommand):
         j = r.json()
         if "tunnels" in j:
             self.brain.api_url = j["tunnels"][0]["public_url"]
-            self.brain.save()
+            self.save()
             os.environ["SIDEBAR_API_URL"] = self.brain.api_url
             puts(" found at %s." % self.brain.api_url)
 
