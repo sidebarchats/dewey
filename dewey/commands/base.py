@@ -97,7 +97,7 @@ class DeweyCommand(object):
                 choice
 
     def save(self):
-        resources.user.read('config.py', pickle.dumps(self.brain))
+        resources.user.write('config.py', pickle.dumps(self.brain))
 
     def set_platform(self, platform):
         assert platform in VALID_PLATFORMS
