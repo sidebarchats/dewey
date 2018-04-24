@@ -7,7 +7,7 @@ class Command(DeweyCommand):
         return "workon sidebar-%s" % kwargs["<app_name>"]
 
     def run_command(self, *args, **kwargs):
-        pass
+        self.ensure_dev_setup()
 
     def post_default(self, *args, **kwargs):
-        pass
+        return "export SIDEBAR_USER=%s" % self.brain.username
