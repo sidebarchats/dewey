@@ -15,5 +15,6 @@ class Command(DeweyCommand):
 
     def post_default(self, *args, **kwargs):
         if self.has_local_override("build"):
-            puts("dewey.yml Found.\nRunning build...")
+            puts("echo 'dewey.yml Found.'")
+            puts("echo 'Running build...'")
             return " && ".join(self.local["build"])
