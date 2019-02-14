@@ -1,3 +1,4 @@
+import time
 import os
 import json
 import requests
@@ -11,12 +12,12 @@ from dewey.util import suppress_stdout_stderr
 class Command(DeweyCommand):
 
     def pre_default(self, *args, **kwargs):
-        return "{ ngrok http 8120 &> /dev/null & } 2>/dev/null"
+        return "{ ngrok http 8120 -subdomain=sidebar-%s &> /dev/null & } 2>/dev/null" % self.brain.username
 
     def run_command(self, *args, **kwargs):
         puts("Verifying tunnel...", newline=False)
         retries = 0
-        while retries < 2:
+        while retries < 3:
             r = requests.get("http://localhost:4040/api/tunnels")
             j = r.json()
             if "tunnels" in j:
@@ -39,8 +40,9 @@ class Command(DeweyCommand):
                             f.truncate()
                             f.write(new_contents)
                             puts(" done.")
-                    return 
+                    return
                 except:
+                    time.sleep(0.4)
                     retries += 1
 
         puts("Failed to set tunnel.  Output: %s" % j)
