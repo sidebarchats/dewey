@@ -29,7 +29,7 @@ class DeweyCommand(object):
             self.local = None
 
     def has_local_override(self, key):
-        return self.local and "setup" in self.local and len(self.local[key]) > 0
+        return self.local and key in self.local and len(self.local[key]) > 0
 
     def answer_yes_or_no(self, question, default="yes"):
         """Ask a yes/no question via raw_input() and return their answer.
