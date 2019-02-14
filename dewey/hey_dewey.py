@@ -11,6 +11,7 @@ Usage:
   dewey bash
   dewey build
   dewey setup
+  dewey migrate
   dewey test
   dewey hi
   dewey upgrade
@@ -33,6 +34,7 @@ Details of use:
   dewey dev-setup   Update the system developer libraries
   dewey sync        Pull from github, generate a difference report
   dewey setup       Set up a given codebase
+  dewey migrate     If a codebase supports schema migrations, run them.
   dewey bash        (Backend) SSH into the main docker container
   dewey build       Build for production
   dewey test        Run all tests
