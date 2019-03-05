@@ -1,10 +1,14 @@
+import os
 from .base import DeweyCommand
 
 
 class Command(DeweyCommand):
 
     def pre_default(self, *args, **kwargs):
-        return "workon sidebar-%s" % kwargs["<app_name>"]
+        return "workon %s-%s" % (
+            os.environ.get("DEWEY_ENV", "sidebar"),
+            kwargs["<app_name>"],
+        )
 
     def run_command(self, *args, **kwargs):
         self.ensure_dev_setup()
