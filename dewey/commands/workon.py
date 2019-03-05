@@ -5,7 +5,7 @@ from .base import DeweyCommand
 class Command(DeweyCommand):
 
     def pre_default(self, *args, **kwargs):
-        namespace = os.environ.get("DEWEY_ENV", None)
+        namespace = os.environ.get("DEWEY_NAMESPACE", None)
         if namespace is None:
             namespace = "sidebar-"
         else:
