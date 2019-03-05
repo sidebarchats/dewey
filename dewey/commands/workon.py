@@ -5,8 +5,17 @@ from .base import DeweyCommand
 class Command(DeweyCommand):
 
     def pre_default(self, *args, **kwargs):
-        return "workon %s-%s" % (
-            os.environ.get("DEWEY_ENV", "sidebar"),
+        namespace = os.environ.get("DEWEY_ENV", None)
+        if namespace is None:
+            namespace = "sidebar-"
+        else:
+            if namespace == "NO_NAMESPACE":
+                namespace = ""
+            else:
+                namespace = "%s-" % namespace
+
+        return "workon %s%s" % (
+            namespace,
             kwargs["<app_name>"],
         )
 
